@@ -1,18 +1,19 @@
 <h2>Posts List</h2>
-<button (click)="openform()">Add Post</button>
+<button class="btn" (click)="openform()">Add Post</button>
 <br>
-<div *ngIf="showform">
+<div class="card" *ngIf="showform">
   <h3>Add new post</h3>
   <label>Title</label><br>
-  <input type="text" [(ngModel)]="newpost.title">
+  <input type="text" placeholder="Enter title" [(ngModel)]="newpost.title" required>
 
   <label>Body</label>
-  <input type="text" [(ngModel)]="newpost.body" name="" id="">
+  <input type="text" placeholder="Enter content" [(ngModel)]="newpost.body" required name="" id="">
 
-  <button (click)="submit()">Submit</button>
+  <button class="btn" (click)="submit()" >Submit</button>
 
 
 </div>
+<br>
 
 <table border="1" cellpadding="5">
     <tr>

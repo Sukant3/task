@@ -5,20 +5,20 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-posts',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './posts.html',
   styleUrl: './posts.css',
 })
 export class Posts implements OnInit {
 
-  posts: any[] = []; 
-  showform=false
+  posts: any[] = [];
+  showform = false
 
-  newpost={
-    title:'',
-    body:''
+  newpost = {
+    title: '',
+    body: ''
   }
-  constructor(private postService: Post) {} 
+  constructor(private postService: Post) { }
 
   ngOnInit(): void {
     this.fetchpost();
@@ -26,22 +26,24 @@ export class Posts implements OnInit {
 
   fetchpost() {
     this.postService.getPosts().subscribe(data => {
-      this.posts=data
+      this.posts = data
     });
   }
 
-  openform(){
-    this.showform=true
+  openform() {
+    this.showform = true
 
-}
+  }
 
-submit(){
-  this.postService.addPost(this.newpost).subscribe(response=>{
-    this.posts.push(response)
-    this.newpost={title:'',body:''}
-    this.showform=false
-  })
-}
+  submit() {
+
+    this.postService.addPost(this.newpost).subscribe(res => {
+      this.posts.push(res);
+      this.newpost = { title: '', body: '' };
+      this.showform = false;
+    });
+  }
+
 
 
 }
