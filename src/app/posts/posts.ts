@@ -41,7 +41,10 @@ export class Posts implements OnInit {
       this.posts.push(res);
       this.newpost = { title: '', body: '' };
       this.showform = false;
-    });
+      alert("Post added succesfully")
+    }
+   
+  );
   }
 
 
