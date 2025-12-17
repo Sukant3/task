@@ -13,6 +13,10 @@ export class Post {
   constructor(private http: HttpClient) {}
 
   getPosts(): Observable<any[]> {
-    return this.http.get<any[]>(this.url);
+    return this.http.get<any[]>(this.url)
+  }
+
+  addPost(post:any):Observable<any>{
+    return this.http.post<any>(this.url,post)
   }
 }

@@ -1,9 +1,23 @@
 <h2>Posts List</h2>
+<button (click)="openform()">Add Post</button>
+<br>
+<div *ngIf="showform">
+  <h3>Add new post</h3>
+  <label>Title</label><br>
+  <input type="text" [(ngModel)]="newpost.title">
 
-<table>
+  <label>Body</label>
+  <input type="text" [(ngModel)]="newpost.body" name="" id="">
+
+  <button (click)="submit()">Submit</button>
+
+
+</div>
+
+<table border="1" cellpadding="5">
     <tr>
         <th> ID </th>
-        <th> Title</th>
+        <th>Title</th>
         <th> Body </th>
     </tr>
     <tr *ngFor="let p of posts">
@@ -12,3 +26,4 @@
         <td>{{p.body}}</td>
     </tr>
 </table>
+
